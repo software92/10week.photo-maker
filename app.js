@@ -8,6 +8,7 @@ const ctx = canvas.getContext('2d');
 
 const WIDTH = 500;
 const HEIGHT = 500;
+const COLOR_OPTION = 'selected';
 let isFill = false;
 
 canvas.width = WIDTH;
@@ -44,8 +45,18 @@ const onChangeLineWidth = (e) => {
 };
 
 const onChangeColor = (e) => {
-  ctx.strokeStyle = e.target.dataset.color;
-  ctx.fillStyle = e.target.dataset.color;
+  const allColors = Array.from(e.target.parentNode.children);
+  const selectedColor = e.target.dataset.color;
+
+  ctx.strokeStyle = selectedColor;
+  ctx.fillStyle = selectedColor;
+
+  allColors.forEach((color) => {
+    color.classList.remove(COLOR_OPTION);
+    if (color.dataset.color === selectedColor) {
+      color.classList.add(COLOR_OPTION);
+    }
+  });
 };
 
 colors.forEach((color) => {
