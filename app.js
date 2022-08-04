@@ -1,11 +1,15 @@
 const lineWidth = document.querySelector('#line-width');
 const colors = document.querySelectorAll('.colors div');
+const clearBtn = document.querySelector('.clear-btn');
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = 500;
-canvas.height = 500;
+const WIDTH = 500;
+const HEIGHT = 500;
+
+canvas.width = WIDTH;
+canvas.height = HEIGHT;
 ctx.lineWidth = lineWidth.value;
 
 const onPanting = (e) => {
@@ -43,8 +47,14 @@ colors.forEach((color) => {
   color.addEventListener('click', onChangeColor);
 });
 
+const onCanvasClear = (e) => {
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+};
+
 canvas.addEventListener('mousedown', onCanvas);
 canvas.addEventListener('mouseup', onCanvasOut);
 canvas.addEventListener('mouseleave', onCanvasOut);
 
 lineWidth.addEventListener('change', onChangeLineWidth);
+clearBtn.addEventListener('click', onCanvasClear);
