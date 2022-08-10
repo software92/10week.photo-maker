@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas></canvas>
-    <input type="range" id="line-width" min="1" max="10" value="5" />
     <div class="colors">
       <div data-color="#2d3436"></div>
       <div data-color="#e84393"></div>
@@ -22,9 +20,26 @@
       <div data-color="#81ecec"></div>
       <div data-color="#55efc4"></div>
     </div>
-    <button class="paint-mode">FILL</button>
-    <button class="clear-btn">CLEAR</button>
-
+    <canvas></canvas>
+    <div class="side-bar">
+      <label for="line-width">LINE WIDTH</label>
+      <input type="range" id="line-width" min="1" max="10" value="5" />
+      <button class="erase-btn">ERASE OFF</button>
+      <button class="paint-mode">FILL</button>
+      <button class="clear-btn">CLEAR</button>
+      <label for="image--add-btn">ADD IMAGE</label>
+      <input
+        type="file"
+        id="image--add-btn"
+        class="image--add-btn"
+        accept="image/*"
+        hidden
+      />
+      <label for="font-control">FONT SIZE</label>
+      <input type="range" id="font-control" value="25" min="1" max="50" />
+      <input type="text" class="text--input" />
+      <button class="download-btn">DOWNLOAD</button>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

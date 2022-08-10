@@ -1,7 +1,8 @@
 canvas {
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   border: 5px solid black;
+  border-radius: 25px;
 }
 
 * {
@@ -9,20 +10,43 @@ canvas {
 }
 
 body {
+  width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.side-bar {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+.side-bar > * {
+  margin-bottom: 20px;
+}
+.side-bar label[for='image--add-btn'],
+.side-bar input[type='range'],
+.side-bar button {
+  cursor: pointer;
+}
+
 .colors {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-right: 25px;
 }
 .colors div {
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
 }
 .colors div:hover,
 .selected {
@@ -30,4 +54,29 @@ body {
 }
 .selected {
   border: 2px dashed black;
+}
+
+#line-width {
+  width: 100%;
+}
+
+button,
+label {
+  all: unset;
+  text-align: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 21px;
+}
+button,
+label[for='image--add-btn'] {
+  padding: 7px;
+  font-size: 15px;
+  text-align: center;
+  background-color: #425cd7;
+  color: white;
+  border-radius: 15px;
+}
+#font-control {
+  width: 100%;
 }
