@@ -15,7 +15,8 @@ const WIDTH = 700;
 const HEIGHT = 700;
 const COLOR_OPTION = 'selected';
 let isFill = false;
-let selectedColor;
+let isErase = false;
+let selectedColor = '#000000';
 
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
@@ -133,12 +134,22 @@ const onDownload = (e) => {
 };
 
 const onCanvasErase = (e) => {
-  isFill = false;
-  ctx.strokeStyle = 'white';
-  ctx.fillStyle = 'white';
-  ctx.stroke();
+  // isFill = false;
 
-  eraseBtn.innerHTML = 'ERASE ON';
+  if (!isErase) {
+    ctx.strokeStyle = 'white';
+    ctx.fillStyle = 'white';
+    ctx.stroke();
+
+    eraseBtn.innerHTML = 'ERASE ON';
+    isErase = true;
+  } else {
+    ctx.strokeStyle = selectedColor;
+    ctx.fillStyle = selectedColor;
+
+    eraseBtn.innerHTML = 'ERASE OFF';
+    isErase = false;
+  }
 };
 
 canvas.addEventListener('mousedown', onCanvas);
